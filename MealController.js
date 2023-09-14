@@ -7,8 +7,8 @@ module.exports.getMeal = async (req, res) =>{
 }
 
 module.exports.saveMeals = async (req, res) =>{
-    const {title, ingredients,dayOfWeek} = req.body;
-    MealModel.create({title , ingredients,dayOfWeek})
+    const {title, ingredients,dayOfWeek, typeOfMeal} = req.body;
+    MealModel.create({title , ingredients,dayOfWeek,typeOfMeal})
     .then((data)=> {console.log("Meal added")
 res.send(data)
 })
@@ -24,7 +24,7 @@ module.exports.deleteMeal = async (req, res) =>{
 
 
 module.exports.editMeal = async (req, res) =>{
-    const {_id, title, ingredients,dayOfWeek} = req.body;
-    MealModel.findByIdAndUpdate(_id, {title, ingredients,dayOfWeek})
+    const {_id, title, ingredients,dayOfWeek, typeOfMeal} = req.body;
+    MealModel.findByIdAndUpdate(_id, {title, ingredients,dayOfWeek,typeOfMeal})
     .then(()=> res.send("Edited a meal"))
 }
